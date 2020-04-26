@@ -1,17 +1,17 @@
 import React,{Component} from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-class Explore extends Component {
+class Inbox extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Explore</Text>
+        <Text>Inbox</Text>
       </View>
     );
   }
 }
 
-export default Explore;
+export default Inbox;
 
 
 const styles = StyleSheet.create({
