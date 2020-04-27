@@ -9,16 +9,6 @@ import Profile from './screens/Profile';
 import Saved from './screens/Saved';
 import Trips from './screens/Trips';
 
-class App extends React.Component {
-  render() {
-
-    return (
-      <View style={styles.container}>
-        <Text>NEW APP</Text>
-      </View>
-    );
-  }
-}
 
 export default createBottomTabNavigator({
   Explore:{
@@ -33,37 +23,50 @@ export default createBottomTabNavigator({
   Saved:{
     screen: Saved,
     navigationOptions: {
-      tabBarLabel: 'EXPLORE',
+      tabBarLabel: 'SAVED',
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="ios-search" color={tintColor} size={24}/>
+        <Icon name="ios-heart-empty" color={tintColor} size={24}/>
       )
     }
   },
   Trips: {
     screen: Trips,
     navigationOptions: {
-      tabBarLabel: 'EXPLORE',
+      tabBarLabel: 'TRIPS',
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="ios-search" color={tintColor} size={24}/>
+        <Icon name="ios-globe" color={tintColor} size={24}/>
       )
     }
   }, 
   Inbox: {
     screen: Inbox,
     navigationOptions: {
-      tabBarLabel: 'EXPLORE',
+      tabBarLabel: 'INBOX',
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="ios-search" color={tintColor} size={24}/>
+        <Icon name="ios-mail" color={tintColor} size={24}/>
       )
     }
   },
   Profile: {
     screen: Profile,
     navigationOptions: {
-      tabBarLabel: 'EXPLORE',
+      tabBarLabel: 'PROFILE',
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="ios-search" color={tintColor} size={24}/>
+        <Icon name="ios-contact" color={tintColor} size={24}/>
       )
+    }
+  }
+},{
+  tabBarOptions: {
+    activeTintColor: 'red',
+    inactiveTintColor: 'grey',
+    style: {
+      backgroundColor: 'white',
+      borderTopWidth: 0,
+      shadowOffset: { width: 5, height: 3 },
+      shadowColor: 'black',
+      shadowOpacity: 0.5,
+      elevation: 5
     }
   }
 })
