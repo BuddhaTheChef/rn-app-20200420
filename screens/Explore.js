@@ -2,6 +2,7 @@ import React,{Component} from "react";
 import { StyleSheet, Text, View, SafeAreaView, TextInput, Platform, StatusBar, ScrollView, Image, Dimensions } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Category from './components/Explore/Category';
+import Home from './components/Explore/Home';
 
 const {height, width} = Dimensions.get('window');
 
@@ -46,6 +47,19 @@ class Explore extends Component {
                   <View style={{width: width -40, height: 200, marginTop: 20}}>
                     <Image style={{ flex: 1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#dddddd'}} source={require('../assets/images/rn-1.jpg')}/>
                   </View>
+              </View>
+            </View>
+            <View style={{marginTop: 40}}>
+              <Text style={{fontSize: 24, fontWeight:'700', paddingHorizontal: 20}}>
+                Something around the world
+              </Text>
+              <View style={{paddingHorizontal: 20, marginTop: 20, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between'}}>
+               <Home width={width} name="The Gaming PC" type="Private Room - Rec Center" price={'$20/ person'} rating={4} />
+               <Home width={width} name="The Bungalo" type="Private Room - 2 Beds" price={'$82'} rating={3.5} />
+               <Home width={width} name="All In" type="Private Room - 4 Beds" price={'$102'} rating={5} />
+               <Home width={width} name="Jungle Suite" type="Private Room - 1 Bed" price={'$200'} rating={4.5} />
+               <Home width={width} name="Beach Front House" type="Private Room - 6 Beds" price={'$182'} rating={3.5} />
+               <Home width={width} name="The Crash Pad" type="Private Room - 12 Beds" price={'$50'} rating={2} />
               </View>
             </View>
           </ScrollView>
