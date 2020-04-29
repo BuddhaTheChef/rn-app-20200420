@@ -1,30 +1,56 @@
 import React,{Component} from "react";
-import { StyleSheet, Text, View, SafeAreaView, TextInput, Platform, StatusBar, ScrollView, Image, Dimensions } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, TextInput, Platform, StatusBar, ScrollView, Image, Dimensions, Animated } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import Category from './components/Explore/Category';
 import Home from './components/Explore/Home';
+import Tag from './components/Explore/Tag';
 
 const {height, width} = Dimensions.get('window');
 
 class Explore extends Component {
 
   componentWillMount() {
+
+    this.scrollY = new Animated.Value(0);
+
     this.startHeaderHeight = 80;
+    this.endHeaderHeight = 50;
     if(Platform.OS == 'android') {
       this.startHeaderHeight = 100 + StatusBar.currentHeight
+      this.endHeaderHeight = 70 + StatusBar.currentHeight
     }
+
+    this.animatedHeaderHeight = this.scrollY.interpolate({
+      inputRange:[0,50],
+      outputRange: [this.startHeaderHeight, this.endHeaderHeight],
+      extrapolate: 'clamp'
+    });
+
+    this.animatedOpacity = this.animatedHeaderHeight.interpolate({
+      inputRange:[0,1],
+      outputRange: [this.endHeaderHeight, this.startHeaderHeight],
+      extrapolate: 'clamp'
+    });
   }
   render() {
     return (
       <SafeAreaView style={{flex: 1}}>
         <View style={{flex: 1}}>
-          <View style={{height: this.startHeaderHeight, backgroundColor: 'white', borderBottomWidth: 1, borderBottomColor: '#dddddd'}}>
+          <Animated.View style={{height: this.animatedHeaderHeight, backgroundColor: 'white', borderBottomWidth: 1, borderBottomColor: '#dddddd'}}>
             <View style={{ flexDirection: 'row', padding: 10, backgroundColor: 'white', marginHorizontal: 20, shadowOffset: {width: 0, height: 0}, shadowColor: 'black', shadowOpacity: 0.2, elevation: 1, borderRadius: 9, marginTop: Platform.OS == 'android' ? 30 : null}}>
               <Icon name="ios-search" size={20} style={{ marginRight: 10}} />
               <TextInput placeholder="Enter Text Here" placeholderTextColor="grey" style={{ flex: 1, fontWeight: '700', backgroundColor: 'white'}} />
             </View>
-          </View>
-          <ScrollView scrollEventThrottle={16}>
+            <Animated.View style={{flexDirection: 'row', marginHorizontal: 20, position: 'relative', top: 10, opacity: this.animatedOpacity}}>
+              <Tag name="Guests"/>
+              <Tag name="Dates"/>
+            </Animated.View>
+          </Animated.View>
+          <ScrollView scrollEventThrottle={16} onScroll={Animated.event(
+            [
+              {nativeEvent:{contentOffset:{y:this.scrollY}}}
+            ]
+          )}>
             <View style={{flex: 1, backgroundColor: 'white', paddingTop: 20}}>
               <Text style={{fontSize: 24, fontWeight: '700', padding: 20}}>
                 What do you need help finding?
