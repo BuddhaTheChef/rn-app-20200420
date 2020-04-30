@@ -14,7 +14,7 @@ export default createBottomTabNavigator({
   Explore:{
     screen: Explore,
     navigationOptions: {
-      tabBarLabel: 'EXPLORE',
+      tabBarLabel: 'ACCOUNTS',
       tabBarIcon: ({ tintColor }) => (
         <Icon name="ios-search" color={tintColor} size={24}/>
       )
@@ -23,7 +23,7 @@ export default createBottomTabNavigator({
   Saved:{
     screen: Saved,
     navigationOptions: {
-      tabBarLabel: 'SAVED',
+      tabBarLabel: 'TRANSFERS',
       tabBarIcon: ({ tintColor }) => (
         <Icon name="ios-heart-empty" color={tintColor} size={24}/>
       )
@@ -32,7 +32,7 @@ export default createBottomTabNavigator({
   Trips: {
     screen: Trips,
     navigationOptions: {
-      tabBarLabel: 'TRIPS',
+      tabBarLabel: 'DEPOSITS',
       tabBarIcon: ({ tintColor }) => (
         <Icon name="ios-globe" color={tintColor} size={24}/>
       )

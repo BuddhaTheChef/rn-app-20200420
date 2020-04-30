@@ -63,7 +63,7 @@ class Explore extends Component {
                   <Category imageUri={require('../assets/images/rn-1.jpg')} name="Experince" />
                 </ScrollView>
               </View>
-              <View style={{marginTop: 40, paddingHorizontal: 20}}>
+              <View style={{marginTop: 40, paddingHorizontal: 20, backgroundColor: 'white'}}>
                   <Text style={{fontSize: 24, fontWeight: '700'}}>
                       Introducing New Features
                   </Text>
@@ -75,7 +75,7 @@ class Explore extends Component {
                   </View>
               </View>
             </View>
-            <View style={{marginTop: 40}}>
+            <View style={{marginTop: 40, backgroundColor: 'white'}}>
               <Text style={{fontSize: 24, fontWeight:'700', paddingHorizontal: 20}}>
                 Something around the world
               </Text>
