@@ -1,16 +1,20 @@
 import * as React from 'react';
-import { AsyncStorage, Button, Text, TextInput, View } from 'react-native';
+import { AsyncStorage, Button, Text, TextInput, View, ImageBackground, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import loginBg from './assets/images/rn-2.jpg';
+import logo from './assets/images/rn-3.png';
 
 import Explore from './screens/Explore';
 import Inbox from './screens/Inbox';
 import Profile from './screens/Profile';
 import Saved from './screens/Saved';
 import Trips from './screens/Trips';
+
+const {width: WIDTH} = Dimensions.get('window');
 
 const AuthContext = React.createContext();
 
@@ -77,20 +81,42 @@ function SignInScreen() {
   const { signIn } = React.useContext(AuthContext);
 
   return (
-    <View>
-      <TextInput
+    <ImageBackground source={loginBg} style={styles.backgroundContainer}>
+    <View style={styles.logoContainer}>
+      <Image source={logo} style={styles.logo}/>
+      <Text style={styles.logoText}>Welcome User</Text>
+    </View>
+    <View style={styles.inputContainer}>
+      <Icon name={'ios-contact'} size={28} color={'rgba(255,255,255,0.7)'}  style={styles.inputIcon}/>
+    <TextInput
+        style={styles.input}
+        placeholderTextColor={'rgba(255,255,255,0.7)'}
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
       />
+    </View>
+    
+    <View style={styles.inputContainer}>
+      <Icon name={'ios-lock'} size={28} color={'rgba(255,255,255,0.7)'}  style={styles.inputIcon}/>
       <TextInput
+        style={styles.input}
+        placeholderTextColor={'rgba(255,255,255,0.7)'}
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button title="Sign in" onPress={() => signIn({ username, password })} />
+      <TouchableOpacity style={styles.btnEye}>
+        <Icon name={'ios-eye'} size={26} color={'rgba(255,255,255,0.7)'}/>
+      </TouchableOpacity>
     </View>
+      
+    <TouchableOpacity style={styles.btnLogin} onPress={() => signIn({ username, password })}>
+        <Text style={styles.text}>Login</Text>
+      </TouchableOpacity>
+   
+    </ImageBackground>
   );
 }
 
@@ -185,7 +211,7 @@ export default function App({ navigation }) {
               component={SignInScreen}
               options={{
                 title: 'Welcome',
-                
+                headerShown: false,
             // When logging out, a pop animation feels intuitive
                 animationTypeForReplace: state.isSignout ? 'pop' : 'push',
               }}
@@ -199,3 +225,64 @@ export default function App({ navigation }) {
     </AuthContext.Provider>
   );
 }
+
+const styles = StyleSheet.create({
+  backgroundContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: null,
+    height: null
+  },
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 50
+  },
+  logo: {
+    width: 120,
+    height: 120
+  },
+  logoText: {
+    color: 'whitesmoke',
+    fontSize: 20,
+    fontWeight: '500',
+    marginTop: 10,
+    opacity: 0.5
+  },
+  inputContainer: {
+    marginTop: 10
+  },
+  input: {
+    width: WIDTH - 55,
+    height: 45,
+    borderRadius: 25,
+    fontSize: 16,
+    paddingLeft: 45,
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    color: 'rgba(255,255,255,0.7)',
+    marginHorizontal: 25
+  },
+  inputIcon: {
+    position: 'absolute',
+    top: 10,
+    left: 37
+  },
+  btnEye: {
+    position: 'absolute',
+    top: 8,
+    right: 37
+  },
+  btnLogin: {
+    width: WIDTH - 55,
+    height: 45,
+    borderRadius: 25,
+    backgroundColor: '#5CAF53',
+    justifyContent: 'center',
+    marginTop: 20
+  },
+  text: {
+    color: 'rgba(255,255,255,0.7)',
+    fontSize: 16,
+    textAlign: 'center'
+  }
+});
