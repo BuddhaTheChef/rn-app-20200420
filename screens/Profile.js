@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Dimensions,Button } from "react-native";
 import Home from './components/Explore/Home';
 
 const {height, width} = Dimensions.get('window');
