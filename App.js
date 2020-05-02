@@ -38,13 +38,13 @@ function HomeScreen() {
       <Tab.Screen name="Explore" component={Explore}   options={{
           tabBarLabel: 'HOME',
           tabBarIcon: ({ color, size }) => (
-            <Icon name="ios-search" color={color} size={size} />
+            <Icon name="ios-heart" color={color} size={size} />
           ),
         }}/>
         <Tab.Screen name="Transfers" component={Saved}   options={{
           tabBarLabel: 'Transfers',
           tabBarIcon: ({ color, size }) => (
-            <Icon name="ios-heart-empty" color={color} size={size} />
+            <Icon name="ios-repeat" color={color} size={size} />
           ),
         }}/>
         <Tab.Screen name="Deposits" component={Trips}   options={{

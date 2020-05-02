@@ -5,7 +5,7 @@ class Trips extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Trips</Text>
+        <Text>Deposits</Text>
       </View>
     );
   }

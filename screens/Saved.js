@@ -5,7 +5,7 @@ class Saved extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Saved</Text>
+        <Text>Transfers</Text>
       </View>
     );
   }
