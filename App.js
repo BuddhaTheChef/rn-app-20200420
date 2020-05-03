@@ -13,6 +13,7 @@ import Inbox from './screens/Inbox';
 import Profile from './screens/Profile';
 import Saved from './screens/Saved';
 import Trips from './screens/Trips';
+import Savings from './screens/Savings';
 
 const {width: WIDTH} = Dimensions.get('window');
 
@@ -220,6 +221,7 @@ export default function App({ navigation }) {
             // User is signed in
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
           )}
+          <Stack.Screen name="Savings" component={Savings} options={{ headerShown: false }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>
