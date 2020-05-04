@@ -14,6 +14,7 @@ import Profile from './screens/Profile';
 import Saved from './screens/Saved';
 import Trips from './screens/Trips';
 import Savings from './screens/Savings';
+import Checkings from './screens/Checkings';
 
 const {width: WIDTH} = Dimensions.get('window');
 
@@ -221,7 +222,8 @@ export default function App({ navigation }) {
             // User is signed in
             <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
           )}
-          <Stack.Screen name="Savings" component={Savings} options={{ headerShown: false }}/>
+          <Stack.Screen name="Savings" component={Savings} options={{ headerShown: true }}/>
+          <Stack.Screen name="Checkings" component={Checkings} options={{ headerShown: true }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>
