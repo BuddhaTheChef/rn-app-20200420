@@ -5,16 +5,16 @@ const { height, width } = Dimensions.get("window");
 
 function Savings() {
     const [people, setPeople] = useState([
-        {date: 'May 1', name: 'Dividend', amount: '$200.50', key:1},
-        {date: 'April 20', name: 'Taco Bell Merchandise',  amount: '- $2,000.50',key:2},
+        {date: 'May 1', name: 'Dividend', amount: '$200.50', key:1, color: 'green'},
+        {date: 'April 20', name: 'Taco Bell Merchandise',  amount: '- $2,000.50',key:2,color: 'red'},
         {date: 'April 16', name: 'Verve',  amount: '$575.50',key:3},
         {name: 'Best Buy',  amount: '$78.64',key:4},
         {date: 'April 10', name: 'Lyft', amount: '$134.40', key:5},
-        {date: 'April 5', name: 'Taco Bell Merchandise',  amount: '- $2,000.50',key:6},
+        {date: 'April 5', name: 'Taco Bell Merchandise',  amount: '- $2,000.50',key:6,color: 'red'},
         {name: 'Verve',  amount: '$575.50',key:7},
-        {name: 'Rent to apartment',  amount: '- $1,999.50',key:8},
+        {name: 'Rent to apartment',  amount: '- $1,999.50',key:8,color: 'red'},
         {date: 'March 30', name: 'Seattle Utilities',  amount: '$575.50',key:9},
-        {date: 'March 27', name: 'Taco Bell Merchandise',  amount: '- $2,000.50',key:10},
+        {date: 'March 27', name: 'Taco Bell Merchandise',  amount: '- $2,000.50',key:10,color: 'red'},
         {date: 'March 25', name: 'TRANSFER FROM CHECKINGS',  amount: '$575.50',key:11},
     ])
 
@@ -45,7 +45,8 @@ function Savings() {
                         
                     <View style={styles.payDiv}>
                     <Text style={styles.name}>{item.name}</Text>
-                    <Text style={styles.amount}>{item.amount}</Text>
+                    <Text style={styles.amount}>{item.color=="red" ? <Text style={{color: 'red'}}>{item.amount}</Text> : <Text style={{color: 'green'}}>{item.amount}</Text>}
+                    </Text>
                     </View>
                     </View>
                     </View>
@@ -107,5 +108,3 @@ const styles = StyleSheet.create({
   });
 
 export default Savings;
-
-
