@@ -15,6 +15,7 @@ import Saved from './screens/Saved';
 import Trips from './screens/Trips';
 import Savings from './screens/Savings';
 import Checkings from './screens/Checkings';
+import Email from './screens/Email';
 
 const {width: WIDTH} = Dimensions.get('window');
 
@@ -224,6 +225,7 @@ export default function App({ navigation }) {
           )}
           <Stack.Screen name="Savings" component={Savings} options={{ headerShown: true }}/>
           <Stack.Screen name="Checkings" component={Checkings} options={{ headerShown: true }}/>
+          <Stack.Screen name="Email" component={Email} options={{ headerShown: true }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>
