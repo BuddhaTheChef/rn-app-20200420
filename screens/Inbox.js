@@ -8,6 +8,9 @@ import {
   FlatList,
 } from "react-native";
 
+import Icon from 'react-native-vector-icons/Ionicons';
+
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Email from "./Email";
@@ -17,44 +20,112 @@ const { height, width } = Dimensions.get("window");
 function Inbox({ navigation }) {
   const [people, setPeople] = useState([
     {
-      date: "May 1",
+      date: "May 1, 4:11 PM",
       name: "Dividend",
       amount: "$200.50",
       key: 1,
       color: "green",
+      open: false,
+      from: 'billnye@scienceguy.com'
     },
     {
-      date: "April 20",
+      date: "April 20, 2:30 PM",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 2,
       color: "red",
+      open: true,
+      from: 'tom.jerry@example.com'
     },
-    { date: "April 16", name: "Verve", amount: "$575.50", key: 3 },
-    { name: "Best Buy", amount: "$78.64", key: 4 },
-    { date: "April 10", name: "Lyft", amount: "$134.40", key: 5 },
     {
-      date: "April 5",
+      date: "May 1, 4:11 PM",
+      name: "Dividend",
+      amount: "$200.50",
+      key: 3,
+      color: "green",
+      open: false,
+      from: 'billnye@scienceguy.com'
+    },
+    {
+      date: "April 20, 2:30 PM",
+      name: "Taco Bell Merchandise",
+      amount: "- $2,000.50",
+      key: 4,
+      color: "red",
+      open: true,
+      from: 'tom.jerry@example.com'
+    },
+    {
+      date: "May 1, 4:11 PM",
+      name: "Dividend",
+      amount: "$200.50",
+      key: 5,
+      color: "green",
+      open: false,
+      from: 'billnye@scienceguy.com'
+    },
+    {
+      date: "April 20, 2:30 PM",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 6,
       color: "red",
+      open: true,
+      from: 'tom.jerry@example.com'
     },
-    { name: "Verve", amount: "$575.50", key: 7 },
-    { name: "Rent to apartment", amount: "- $1,999.50", key: 8, color: "red" },
-    { date: "March 30", name: "Seattle Utilities", amount: "$575.50", key: 9 },
     {
-      date: "March 27",
+      date: "May 1, 4:11 PM",
+      name: "Dividend",
+      amount: "$200.50",
+      key: 7,
+      color: "green",
+      open: false,
+      from: 'billnye@scienceguy.com'
+    },
+    {
+      date: "April 20, 2:30 PM",
+      name: "Taco Bell Merchandise",
+      amount: "- $2,000.50",
+      key: 8,
+      color: "red",
+      open: true,
+      from: 'tom.jerry@example.com'
+    },
+    {
+      date: "May 1, 4:11 PM",
+      name: "Dividend",
+      amount: "$200.50",
+      key: 9,
+      color: "green",
+      open: false,
+      from: 'billnye@scienceguy.com'
+    },
+    {
+      date: "April 20, 2:30 PM",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 10,
       color: "red",
+      open: true,
+      from: 'tom.jerry@example.com'
     },
     {
-      date: "March 25",
-      name: "TRANSFER FROM CHECKINGS",
-      amount: "$575.50",
+      date: "May 1, 4:11 PM",
+      name: "Dividend",
+      amount: "$200.50",
       key: 11,
+      color: "green",
+      open: false,
+      from: 'billnye@scienceguy.com'
+    },
+    {
+      date: "April 20, 2:30 PM",
+      name: "Taco Bell Merchandise",
+      amount: "- $2,000.50",
+      key: 12,
+      color: "red",
+      open: true,
+      from: 'tom.jerry@example.com'
     },
   ]);
 
@@ -76,6 +147,7 @@ function Inbox({ navigation }) {
         <Text
           style={{
             fontSize: 30,
+            marginTop: 20,
             color: "whitesmoke",
             marginBottom: 5,
             fontWeight: "400",
@@ -93,34 +165,20 @@ function Inbox({ navigation }) {
           renderItem={({ item }) => (
             <View>
               <View style={styles.dateDiv}>
-                <Text>{item.date}</Text>
+                
                 <TouchableOpacity
                   title="Email"
                   onPress={() => navigation.navigate("Email")}
                   style={styles.emaillist}
                   name="Email"
                 >
-                  <Text
-                    style={{
-                      marginLeft: 10,
-                      fontSize: 20,
-                      fontWeight: "500",
-                      color: "whitesmoke",
-                    }}
-                  >
-                    {item.name}
-                  </Text>
-                  <Text
-                    style={{
-                      marginRight: 10,
-                      fontSize: 20,
-                      fontWeight: "300",
-                      color: "whitesmoke",
-                    }}
-                  >
-                    From: Bill
-                  </Text>
+                   {item.open === true ?<Icon name="ios-mail-open" size={20} style={{marginLeft: 10, marginTop: -15, color: 'gray'}} /> : <Icon name="ios-mail-unread" size={20} style={{marginLeft: 10, marginTop: -15}} /> }
+                  <View style={{flex:1, justifyContent: 'center', flexDirection: "column" ,alignItems:'flex-start', marginTop: 0}}>
+                  {item.open === true ? <Text style={styles.openEmail}>{item.name}</Text>: <Text style={styles.closeEmail}>{item.name}</Text>}
+                  {item.open === true ? <Text style={styles.openEmailBy}>{item.from}</Text>: <Text style={styles.closeEmailBy}>{item.from}</Text>}
+                  </View>
                 </TouchableOpacity>
+                <Text style={{position: 'absolute', right: 10, top: 22}}>{item.date}</Text>
               </View>
             </View>
           )}
@@ -140,24 +198,52 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "rgb(66,66,66)",
-    height: 100,
+    height: 120,
     width: width,
     margin: 0,
   },
-
   emaillist: {
     margin: 0,
+    color: 'black',
     width: width,
-    height: 60,
+    height: 63,
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
+  },
+  dateDiv: {
     borderWidth: 0,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: "#dddddd",
-    backgroundColor: "#5E72AC",
+    borderColor: "#5E72AC",
   },
+  openEmail: {
+    marginRight: 10,
+    marginLeft: 10,
+    fontSize: 20,
+    fontWeight: "300",
+    color: "black",
+  },
+  closeEmail: {
+    marginLeft: 10,
+    marginRight: 10,
+    fontSize: 20,
+    fontWeight: "500",
+    color: "black"
+  },  
+  openEmailBy: {
+    marginRight: 0,
+    fontSize: 14,
+    fontWeight: "300",
+    color: "black",
+ 
+  },
+  closeEmailBy: {
+    marginRight: 0,
+    fontSize: 14,
+    fontWeight: "500",
+    color: "black",
+  }
 });
 
 export default Inbox;
