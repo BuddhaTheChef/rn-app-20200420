@@ -29,7 +29,7 @@ function Inbox({ navigation }) {
       from: 'billnye@scienceguy.com'
     },
     {
-      date: "April 20, 2:30 PM",
+      date: "May 1, 2:30 PM",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 2,
@@ -38,16 +38,16 @@ function Inbox({ navigation }) {
       from: 'tom.jerry@example.com'
     },
     {
-      date: "May 1, 4:11 PM",
-      name: "Dividend",
+      date: "April 29",
+      name: "Wow this is some news",
       amount: "$200.50",
       key: 3,
       color: "green",
       open: false,
-      from: 'billnye@scienceguy.com'
+      from: 'notascam.com'
     },
     {
-      date: "April 20, 2:30 PM",
+      date: "April 24",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 4,
@@ -56,7 +56,7 @@ function Inbox({ navigation }) {
       from: 'tom.jerry@example.com'
     },
     {
-      date: "May 1, 4:11 PM",
+      date: "April 24",
       name: "Dividend",
       amount: "$200.50",
       key: 5,
@@ -65,7 +65,7 @@ function Inbox({ navigation }) {
       from: 'billnye@scienceguy.com'
     },
     {
-      date: "April 20, 2:30 PM",
+      date: "April 22",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 6,
@@ -74,7 +74,7 @@ function Inbox({ navigation }) {
       from: 'tom.jerry@example.com'
     },
     {
-      date: "May 1, 4:11 PM",
+      date: "April 20",
       name: "Dividend",
       amount: "$200.50",
       key: 7,
@@ -83,7 +83,7 @@ function Inbox({ navigation }) {
       from: 'billnye@scienceguy.com'
     },
     {
-      date: "April 20, 2:30 PM",
+      date: "April 18",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 8,
@@ -92,7 +92,7 @@ function Inbox({ navigation }) {
       from: 'tom.jerry@example.com'
     },
     {
-      date: "May 1, 4:11 PM",
+      date: "April 17",
       name: "Dividend",
       amount: "$200.50",
       key: 9,
@@ -101,7 +101,7 @@ function Inbox({ navigation }) {
       from: 'billnye@scienceguy.com'
     },
     {
-      date: "April 20, 2:30 PM",
+      date: "April 17",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 10,
@@ -110,7 +110,7 @@ function Inbox({ navigation }) {
       from: 'tom.jerry@example.com'
     },
     {
-      date: "May 1, 4:11 PM",
+      date: "APril 17",
       name: "Dividend",
       amount: "$200.50",
       key: 11,
@@ -119,7 +119,7 @@ function Inbox({ navigation }) {
       from: 'billnye@scienceguy.com'
     },
     {
-      date: "April 20, 2:30 PM",
+      date: "April 16",
       name: "Taco Bell Merchandise",
       amount: "- $2,000.50",
       key: 12,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#5E72AC",
     flex: 1,
-    paddingBottom: 30,
+    paddingBottom: 100,
   },
   topView: {
     alignItems: "center",
