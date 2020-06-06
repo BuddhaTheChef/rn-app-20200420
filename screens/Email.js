@@ -11,16 +11,17 @@ function Email() {
                 </View>
                 <View style={{flex: 0, justifyContent: 'flex-start'}}>
                 <Text style={{marginBottom: 10}}>Date: 06/25/2020 at 5:55pm</Text>
-                <Text style={{marginBottom: 10,fontSize: 14,fontWeight: 'bold'}}>From: Person 1 @person1@testemailcom</Text>
-                <Text style={{fontSize: 13,fontWeight: 'bold'}}>To: Person 2 @person2@testemailcom</Text>
+                <Text style={{marginBottom: 10,fontSize: 14,fontWeight: 'bold'}}>From: Person 1 person1@testemailcom</Text>
+                <Text style={{fontSize: 13,fontWeight: 'bold'}}>To: Person 2 person2@testemailcom</Text>
                 </View>
                 </View>
-                <Text style={{fontSize: 12, fontWeight: 'bold'}}>Body</Text>
+                <View>
+                <Text style={{fontSize: 12, fontWeight: 'bold'}}>Testing meeting coming up</Text>
                 <Text style={{fontSize: 12, fontWeight: 'bold'}}>
                 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
 
                 </Text>
-                
+                </View>
               </View>
     </View>
 );
