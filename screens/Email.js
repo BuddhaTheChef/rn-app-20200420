@@ -15,12 +15,20 @@ function Email() {
                 <Text style={{fontSize: 13,fontWeight: 'bold'}}>To: Person 2 person2@testemailcom</Text>
                 </View>
                 </View>
-                <View style={{flex: 0, justifyContent: 'space-around', flexDirection: 'row' ,backgroundColor: 'whitesmoke',width: '100%', paddingTop: 10, paddingBottom: 9}}>
-                <Text style={{fontSize: 12, fontWeight: 'bold'}}>Testing meeting coming up</Text>
-                <Text style={{fontSize: 12, fontWeight: 'bold'}}>
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                <View style={{flex: 0, justifyContent: 'space-around', flexDirection: 'column' ,backgroundColor: 'whitesmoke',width: '100%', paddingTop: 10, paddingBottom: 9, paddingLeft: 10, height: '70%', marginLeft: 6}}>
+                  <View style={{fontSize: 12, fontWeight: 'bold', flexDirection: 'column'}}>
+                <Text>Testing meeting coming up</Text>
+                </View>
+                <View style={{fontSize: 12, fontWeight: 'bold', width: '100%', flexDirection: 'column'}}>
+                <Text>
+                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard 
+                dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type 
+                specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining 
+                essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum 
+                passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
 
                 </Text>
+                </View>
                 </View>
               </View>
     </View>
